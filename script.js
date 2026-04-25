@@ -148,7 +148,7 @@ function startGame(){
 
 
   document.body.style.backgroundColor = color;
-}
+
 function choose(answer) {
   let option = story[current][answer];
 
