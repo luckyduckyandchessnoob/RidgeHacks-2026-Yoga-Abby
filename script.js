@@ -191,18 +191,15 @@ function choose(answer) {
 }
 
 
-function updateFog(world) {
-  let intensity = Math.min(world.energy / 100, 1); // 0 to 1
-
+function updateVisualsAndSound(world) {
+  // Update fog based on energy
+  let fogIntensity = Math.min(world.energy / 100, 1);
   const fog = document.getElementById("fog");
-
-  fog.style.background = `rgba(180, 180, 180, ${0.6 * intensity})`;
-  fog.style.backdropFilter = `blur(${10 * intensity}px)`;
-}
-
-function updateFont() {
-  let font;
+  fog.style.background = `rgba(180, 180, 180, ${0.6 * fogIntensity})`;
+  fog.style.backdropFilter = `blur(${10 * fogIntensity}px)`;
   
+  // Update font based on money
+  let font;
   if (world.money > 70) {
     font = 'Garamond, serif';
   } else if (world.money > 50) {
@@ -212,17 +209,12 @@ function updateFont() {
   } else {
     font = 'Comic Sans MS, cursive';
   }
-  
   document.body.style.fontFamily = font;
-}
-
-<<<<<<< HEAD
-function updateSound() {
+  
+  // Update sound based on smiles
   const wompSound = document.getElementById('wompSound');
   const triumphSound = document.getElementById('triumphSound');
   const applauseSound = document.getElementById('applauseSound');
-  
-  // Stop all sounds first
   wompSound.pause();
   triumphSound.pause();
   applauseSound.pause();
@@ -230,7 +222,6 @@ function updateSound() {
   triumphSound.currentTime = 0;
   applauseSound.currentTime = 0;
   
-  // Play based on smiles
   if (world.smiles > 70) {
     applauseSound.play();
   } else if (world.smiles > 50) {
@@ -246,9 +237,7 @@ function yesButtonClicker(event){
     if(event.target == yes){
         question.textContent = "";
         updateBackgroundColor();
-        updateFont();
-        updateFog(world);
-        updateSound();
+        updateVisualsAndSound(world);
     }
 
 }
