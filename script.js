@@ -226,9 +226,9 @@ fog.style.backdropFilter = `blur(${maxBlur * fogIntensity}px)`;
   });
 
   if (world.smiles > 70) {
-    applauseSound?.play().catch(() => {});
-  } else if (world.smiles > 50) {
     triumphSound?.play().catch(() => {});
+  } else if (world.smiles > 50) {
+    applauseSound?.play().catch(() => {});
   } else if (world.smiles > 30) {
     // silence
   } else {
