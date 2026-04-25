@@ -10,7 +10,6 @@ let world = {
   energy: 50,
   future: 50
 };
- HEAD
 
 let current = "Q1";
 
@@ -136,7 +135,10 @@ const story = {
   }
 };
 function startGame(){
-    p.style.display = (p.style.display === "none") ? "block" : "none";
+    p.style.display = "none";
+    showQuestion();
+    updateWorld();
+}
 
 
 // Function to determine color based on metrics
@@ -159,7 +161,6 @@ function updateBackgroundColor() {
   }
   document.body.style.backgroundColor = color;
 }
-<<<<<<< HEAD
 function choose(answer) {
   let option = story[current][answer];
 
@@ -175,6 +176,7 @@ function choose(answer) {
 
   showQuestion();
   updateWorld();
+}
 
 
 function updateFog(world) {
@@ -202,17 +204,11 @@ function updateFont() {
   document.body.style.fontFamily = font;
 }
 
-function yesButtonClicker(event){
-    if(event.target == yes){
-        question.textContent = ""
-    }
-
-}
 function showQuestion() {
   document.getElementById("question").innerText =
     story[current].text;
 }
-function updateWorld() {
+function updateWorld(){
   document.getElementById("money").innerText = world.money;
   document.getElementById("smiles").innerText = world.smiles;
   document.getElementById("nature").innerText = world.nature;
