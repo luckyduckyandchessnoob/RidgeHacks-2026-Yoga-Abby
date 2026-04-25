@@ -142,6 +142,7 @@ const story = {
 };
 function startGame(){
     p.style.display = "none";
+    startButton.style.display = "none";
     showQuestion();
     updateWorld();
 }
@@ -181,7 +182,7 @@ function choose(answer) {
   current = option.next;
    if (current.startsWith("END")) {
     document.getElementById("question").innerText = story[current].text;
-
+    updateWorld();
     yes.style.display = "none";
     no.style.display = "none";
     return;
