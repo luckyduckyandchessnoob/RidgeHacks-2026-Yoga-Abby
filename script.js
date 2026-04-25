@@ -17,7 +17,7 @@ const story = {
     text: "Ruler, bugs are eating 20% of crops. Ban pesticides?",
     yes: {
       next: "Q2",
-      effects: { nature: +20, money: -10, future: +10, smiles: +10, energy: +10 }
+      effects: { nature: +20, money: -10, future: +10, smiles: -10, energy: +10 }
     },
     no: {
       next: "Q3",
