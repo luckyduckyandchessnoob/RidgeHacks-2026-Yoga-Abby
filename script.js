@@ -9,7 +9,9 @@ let world = {
   energy: 50,
   future: 50
 };
-
+  const wompSound = document.getElementById('wompSound');
+  const triumphSound = document.getElementById('triumphSound');
+  const applauseSound = document.getElementById('applauseSound');
 let current = "Q1";
 
 const story = {
@@ -214,10 +216,7 @@ fog.style.backdropFilter = `blur(${maxBlur * fogIntensity}px)`;
   }
   document.body.style.fontFamily = font;
   
- document.addEventListener("DOMContentLoaded", () => {
-  const wompSound = document.getElementById('wompSound');
-  const triumphSound = document.getElementById('triumphSound');
-  const applauseSound = document.getElementById('applauseSound');
+
 
   [wompSound, triumphSound, applauseSound].forEach(s => {
     if (!s) return;
@@ -234,7 +233,7 @@ fog.style.backdropFilter = `blur(${maxBlur * fogIntensity}px)`;
   } else {
     wompSound?.play().catch(() => {});
   }
-});
+);
 
 
 
