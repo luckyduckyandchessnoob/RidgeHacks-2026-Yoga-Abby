@@ -144,7 +144,6 @@ function startGame(){
     startButton.style.display = "none";
     showQuestion();
     updateWorld();
-    updateVisualsAndSound(world);
 }
 
 
@@ -243,3 +242,4 @@ function updateWorld(){
   document.getElementById("energy").innerText = world.energy;
   document.getElementById("future").innerText = world.future;
 }
+document.addEventListener("DOMContentLoaded", updateVisualsAndSound(world));
