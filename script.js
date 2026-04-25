@@ -170,9 +170,6 @@ function choose(answer) {
     updateVisualsAndSound(world);
     yes.style.display = "none";
     no.style.display = "none";
-    setTimeout(() => {
-    window.location.href = "second.html";
-  }, 2000);
     return;
   }
   showQuestion();
