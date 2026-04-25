@@ -241,4 +241,3 @@ function updateWorld(){
   document.getElementById("energy").innerText = world.energy;
   document.getElementById("future").innerText = world.future;
 }
-document.addEventListener("DOMContentLoaded", updateVisualsAndSound(world));
