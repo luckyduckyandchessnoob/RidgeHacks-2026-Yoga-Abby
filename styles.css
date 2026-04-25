@@ -1,10 +1,21 @@
-body{
+body {
     background-color: black;
-    color:azure;
+    color: azure;
+    margin: 0;
+    height: 100vh;
 }
-.container{
-    background-color: gray;
-    display:flex;
-    justify-content:center;
+
+.container {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+#pInitial {
+    font-size: 28px;
+    max-width: 700px;
+    line-height: 1.5;
 }
