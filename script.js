@@ -2,7 +2,6 @@ const startButton = document.getElementById("start");
 const yes = document.getElementById("yesButton");
 const no = document.getElementById("noButton");
 const p = document.getElementById("pInitial");
-let currentQ = "Q1";
 let world = {
   money: 50,
   smiles: 50,
@@ -148,26 +147,8 @@ function startGame(){
 }
 
 
-// Function to determine color based on metrics
-function updateBackgroundColor() {
-  let color;
-  
-  // Check nature first (green = healthy environment)
-  if (world.nature > 70) {
-    color = '#1a4d2e'; // Dark green
-  } else if (world.nature > 50) {
-    color = '#2d6a3e'; // Medium green
-  } else if (world.nature > 30) {
-    color = '#5d4d2d'; // Brown
-  } else {
-    color = '#6b2d1f'; // Dark red/brown
-  }
+ 
 
-  if (world.energy > 70) {
-
-  }
-  document.body.style.backgroundColor = color;
-}
 function choose(answer) {
   let option = story[current][answer];
 
@@ -177,22 +158,36 @@ function choose(answer) {
   for (let stat in effects) {
     world[stat] += effects[stat];
   }
-
-  // Move to next question
+  
   current = option.next;
    if (current.startsWith("END")) {
     document.getElementById("question").innerText = story[current].text;
     updateWorld();
+    updateVisualsAndSound(world);
     yes.style.display = "none";
     no.style.display = "none";
     return;
   }
   showQuestion();
   updateWorld();
+  updateVisualsAndSound(world);
 }
 
 
 function updateVisualsAndSound(world) {
+  // Update background color based on nature
+  let color;
+  if (world.nature > 70) {
+    color = '#1a4d2e'; // Dark green
+  } else if (world.nature > 50) {
+    color = '#2d6a3e'; // Medium green
+  } else if (world.nature > 30) {
+    color = '#5d4d2d'; // Brown
+  } else {
+    color = '#6b2d1f'; // Dark red/brown
+  }
+  document.body.style.backgroundColor = color;
+  
   // Update fog based on energy
   let fogIntensity = Math.min(world.energy / 100, 1);
   const fog = document.getElementById("fog");
@@ -242,8 +237,7 @@ function yesButtonClicker(event){
     }
 
 }
-=======
->>>>>>> b8b9f65c2d544a43616f358a5093f6baea9b6e51
+
 function showQuestion() {
   document.getElementById("question").innerText =
     story[current].text;
