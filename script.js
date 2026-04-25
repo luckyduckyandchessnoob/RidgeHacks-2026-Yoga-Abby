@@ -144,6 +144,7 @@ function startGame(){
     startButton.style.display = "none";
     showQuestion();
     updateWorld();
+    updateVisualsAndSound(world);
 }
 
 
@@ -229,14 +230,7 @@ function updateVisualsAndSound(world) {
   }
 }
 
-function yesButtonClicker(event){
-    if(event.target == yes){
-        question.textContent = "";
-        updateBackgroundColor();
-        updateVisualsAndSound(world);
-    }
 
-}
 
 function showQuestion() {
   document.getElementById("question").innerText =
