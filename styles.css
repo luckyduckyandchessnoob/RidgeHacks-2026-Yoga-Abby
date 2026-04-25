@@ -59,3 +59,10 @@ body {
 #question {
     font-size: 40px;
 }
+
+.metric-item {
+    margin: 0 15px; /* Space between items */
+    display: flex;
+    align-items: center;
+    font-size: 16px; /* Adjust size as needed */
+}
