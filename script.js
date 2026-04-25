@@ -179,7 +179,13 @@ function choose(answer) {
 
   // Move to next question
   current = option.next;
+   if (current.startsWith("END")) {
+    document.getElementById("question").innerText = story[current].text;
 
+    yes.style.display = "none";
+    no.style.display = "none";
+    return;
+  }
   showQuestion();
   updateWorld();
 }
