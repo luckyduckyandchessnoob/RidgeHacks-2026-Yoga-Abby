@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
 const startButton = document.getElementById("start");
 const yes = document.getElementById("yesButton");
 const no = document.getElementById("noButton");
@@ -166,14 +165,14 @@ function choose(answer) {
   
   current = option.next;
    if (current.startsWith("END")) {
-    if (nextButton) {
-  nextButton.style.display = "block";
-                    }
     document.getElementById("question").innerText = story[current].text;
     updateWorld();
     updateVisualsAndSound(world);
     yes.style.display = "none";
     no.style.display = "none";
+    setTimeout(() => {
+    window.location.href = "second.html";
+  }, 2000);
     return;
   }
   showQuestion();
@@ -260,4 +259,4 @@ function updateWorld(){
   document.getElementById("nature").innerText = world.nature;
   document.getElementById("energy").innerText = world.energy;
   document.getElementById("future").innerText = world.future;
-}});
+}
