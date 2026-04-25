@@ -60,7 +60,7 @@ body {
     font-size: 40px;
 }
 
-.metric-item {
+.nMetric {
     margin: 0 15px; /* Space between items */
     display: flex;
     align-items: center;
