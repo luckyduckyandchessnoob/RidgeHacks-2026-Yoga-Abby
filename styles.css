@@ -4,6 +4,7 @@ body {
     margin: 0;
     height: 100vh;
     transition: background-color 1.5s ease-in-out;
+    font-size: 24px;
 }
 
 @keyframes fadeBackground {
