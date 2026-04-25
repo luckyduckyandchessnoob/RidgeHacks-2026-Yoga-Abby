@@ -171,6 +171,7 @@ function choose(answer) {
   }
   showQuestion();
   updateWorld();
+  updateVisualsAndSound(world);
 }
 
 
