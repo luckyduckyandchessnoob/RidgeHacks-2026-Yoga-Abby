@@ -41,3 +41,8 @@ body {
   backdrop-filter: blur(0px);
   transition: background 0.5s ease, backdrop-filter 0.5s ease;
 }
+.metric{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
