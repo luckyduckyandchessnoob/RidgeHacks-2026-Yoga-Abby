@@ -1,8 +1,18 @@
 body {
-    background-color: black;
+    background-color: rgb(50, 50, 50);
     color: azure;
     margin: 0;
     height: 100vh;
+    transition: background-color 1.5s ease-in-out;
+}
+
+@keyframes fadeBackground {
+    from {
+        background-color: inherit;
+    }
+    to {
+        background-color: inherit;
+    }
 }
 
 .container {
