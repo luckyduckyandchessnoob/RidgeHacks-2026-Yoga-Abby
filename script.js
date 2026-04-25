@@ -148,24 +148,6 @@ function startGame(){
 }
 
 
-// Function to determine color based on metrics
-function updateBackgroundColor() {
-  let color;
-  
-  // Check nature first (green = healthy environment)
-  if (world.nature > 70) {
-    color = '#1a4d2e'; // Dark green
-  } else if (world.nature > 50) {
-    color = '#2d6a3e'; // Medium green
-  } else if (world.nature > 30) {
-    color = '#5d4d2d'; // Brown
-  } else {
-    color = '#6b2d1f'; // Dark red/brown
-  }
-
-  if (world.energy > 70) {
-
-  }
   document.body.style.backgroundColor = color;
 }
 function choose(answer) {
@@ -192,18 +174,28 @@ function choose(answer) {
 }
 
 
-function updateFog(world) {
-  let intensity = Math.min(world.energy / 100, 1); // 0 to 1
-
-  const fog = document.getElementById("fog");
-
-  fog.style.background = `rgba(180, 180, 180, ${0.6 * intensity})`;
-  fog.style.backdropFilter = `blur(${10 * intensity}px)`;
-}
-
-function updateFont() {
-  let font;
+function updateVisualsAndSound(world) {
+  // Update background color based on nature
+  let color;
+  if (world.nature > 70) {
+    color = '#1a4d2e'; // Dark green
+  } else if (world.nature > 50) {
+    color = '#2d6a3e'; // Medium green
+  } else if (world.nature > 30) {
+    color = '#5d4d2d'; // Brown
+  } else {
+    color = '#6b2d1f'; // Dark red/brown
+  }
+  document.body.style.backgroundColor = color;
   
+  // Update fog based on energy
+  let fogIntensity = Math.min(world.energy / 100, 1);
+  const fog = document.getElementById("fog");
+  fog.style.background = `rgba(180, 180, 180, ${0.6 * fogIntensity})`;
+  fog.style.backdropFilter = `blur(${10 * fogIntensity}px)`;
+  
+  // Update font based on money
+  let font;
   if (world.money > 70) {
     font = 'Garamond, serif';
   } else if (world.money > 50) {
@@ -213,8 +205,28 @@ function updateFont() {
   } else {
     font = 'Comic Sans MS, cursive';
   }
-  
   document.body.style.fontFamily = font;
+  
+  // Update sound based on smiles
+  const wompSound = document.getElementById('wompSound');
+  const triumphSound = document.getElementById('triumphSound');
+  const applauseSound = document.getElementById('applauseSound');
+  wompSound.pause();
+  triumphSound.pause();
+  applauseSound.pause();
+  wompSound.currentTime = 0;
+  triumphSound.currentTime = 0;
+  applauseSound.currentTime = 0;
+  
+  if (world.smiles > 70) {
+    applauseSound.play();
+  } else if (world.smiles > 50) {
+    triumphSound.play();
+  } else if (world.smiles > 30) {
+    // Do nothing - silence
+  } else {
+    wompSound.play();
+  }
 }
 
 function showQuestion() {
