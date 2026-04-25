@@ -132,7 +132,13 @@ const story = {
       next: "END_NATURE",
       effects: { nature: +40, smiles: +10, money: -10, future: +10, energy: +10  }
     }
-  }
+  },
+  END_GOOD: { text: "🌟 Golden Age" },
+  END_BAD: { text: "⚫ Blackout" },
+  END_DEMOCRACY: { text: "🗳️ Democracy" },
+  END_TYRANT: { text: "👑 Tyrant" },
+  END_SPACE: { text: "🚀 Space Age" },
+  END_NATURE: { text: "🌱 Return to Nature" }
 };
 function startGame(){
     p.style.display = "none";
