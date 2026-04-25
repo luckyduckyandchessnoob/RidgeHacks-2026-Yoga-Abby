@@ -233,7 +233,7 @@ fog.style.backdropFilter = `blur(${maxBlur * fogIntensity}px)`;
   } else {
     wompSound?.play().catch(() => {});
   }
-);
+}
 
 
 
