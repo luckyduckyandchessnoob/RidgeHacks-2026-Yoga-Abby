@@ -165,7 +165,9 @@ function choose(answer) {
   
   current = option.next;
    if (current.startsWith("END")) {
-    nextButton.style.display = "block";
+    if (nextButton) {
+  nextButton.style.display = "block";
+                    }
     document.getElementById("question").innerText = story[current].text;
     updateWorld();
     updateVisualsAndSound(world);
