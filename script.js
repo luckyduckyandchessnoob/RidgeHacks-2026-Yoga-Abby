@@ -277,31 +277,4 @@ function updateWorld(){
   document.getElementById("energy").innerText = world.energy;
   document.getElementById("future").innerText = world.future;
 }
-const newsLines = [
-  "🌍 Climate systems collapsing after decades of mismanagement.",
-  "🔥 Global temperatures continue to rise beyond predictions.",
-  "💧 Major cities report severe water shortages.",
-  "⚡ Energy infrastructure under extreme stress.",
-  "🧠 Scientists warn: recovery may no longer be guaranteed."
-];
 
-let i = 0;
-let charIndex = 0;
-
-function typeWriter() {
-  const el = document.getElementById("newsText");
-  if (!el) return;
-
-  if (charIndex < newsLines[i].length) {
-    el.innerHTML += newsLines[i].charAt(charIndex);
-    charIndex++;
-    setTimeout(typeWriter, 40);
-  } else {
-    setTimeout(() => {
-      el.innerHTML = "";
-      charIndex = 0;
-      i = (i + 1) % newsLines.length;
-      typeWriter();
-    }, 2000);
-  }
-}
