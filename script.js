@@ -202,9 +202,38 @@ function updateFont() {
   document.body.style.fontFamily = font;
 }
 
+function updateSound() {
+  const wompSound = document.getElementById('wompSound');
+  const triumphSound = document.getElementById('triumphSound');
+  const applauseSound = document.getElementById('applauseSound');
+  
+  // Stop all sounds first
+  wompSound.pause();
+  triumphSound.pause();
+  applauseSound.pause();
+  wompSound.currentTime = 0;
+  triumphSound.currentTime = 0;
+  applauseSound.currentTime = 0;
+  
+  // Play based on smiles
+  if (world.smiles > 70) {
+    applauseSound.play();
+  } else if (world.smiles > 50) {
+    triumphSound.play();
+  } else if (world.smiles > 30) {
+    // Do nothing - silence
+  } else {
+    wompSound.play();
+  }
+}
+
 function yesButtonClicker(event){
     if(event.target == yes){
-        question.textContent = ""
+        question.textContent = "";
+        updateBackgroundColor();
+        updateFont();
+        updateFog(world);
+        updateSound();
     }
 
 }
