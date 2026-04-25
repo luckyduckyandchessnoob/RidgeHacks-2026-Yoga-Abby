@@ -214,35 +214,27 @@ fog.style.backdropFilter = `blur(${maxBlur * fogIntensity}px)`;
   }
   document.body.style.fontFamily = font;
   
-  // Update sound based on smiles
+ document.addEventListener("DOMContentLoaded", () => {
   const wompSound = document.getElementById('wompSound');
   const triumphSound = document.getElementById('triumphSound');
   const applauseSound = document.getElementById('applauseSound');
-  wompSound.pause();
-  triumphSound.pause();
-  applauseSound.pause();
-  wompSound.currentTime = 0;
-  triumphSound.currentTime = 0;
-  applauseSound.currentTime = 0;
-  
+
+  [wompSound, triumphSound, applauseSound].forEach(s => {
+    if (!s) return;
+    s.pause();
+    s.currentTime = 0;
+  });
+
   if (world.smiles > 70) {
-    if (applauseSound) {
-  applauseSound.currentTime = 0;
-  applauseSound.play().catch(() => {});
-};
+    applauseSound?.play().catch(() => {});
   } else if (world.smiles > 50) {
-    if (triumphSound) {
-  triumphSound.currentTime = 0;
-  triumphSound.play().catch(() => {});};
+    triumphSound?.play().catch(() => {});
   } else if (world.smiles > 30) {
-    // Do nothing - silence
+    // silence
   } else {
-    if (wompSound) {
-  wompSound.currentTime = 0;
-  wompSound.play().catch(() => {});
-};
+    wompSound?.play().catch(() => {});
   }
-}
+});
 
 
 
