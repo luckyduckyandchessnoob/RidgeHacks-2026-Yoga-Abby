@@ -10,7 +10,6 @@ let world = {
   energy: 50,
   future: 50
 };
- HEAD
 
 let current = "Q1";
 
@@ -133,10 +132,19 @@ const story = {
       next: "END_NATURE",
       effects: { nature: +40, smiles: +10, money: -10, future: +10, energy: +10  }
     }
-  }
+  },
+  END_GOOD: { text: "🌟 Golden Age" },
+  END_BAD: { text: "⚫ Blackout" },
+  END_DEMOCRACY: { text: "🗳️ Democracy" },
+  END_TYRANT: { text: "👑 Tyrant" },
+  END_SPACE: { text: "🚀 Space Age" },
+  END_NATURE: { text: "🌱 Return to Nature" }
 };
 function startGame(){
-    p.style.display = (p.style.display === "none") ? "block" : "none";
+    p.style.display = "none";
+    showQuestion();
+    updateWorld();
+}
 
 
 // Function to determine color based on metrics
@@ -159,7 +167,6 @@ function updateBackgroundColor() {
   }
   document.body.style.backgroundColor = color;
 }
-<<<<<<< HEAD
 function choose(answer) {
   let option = story[current][answer];
 
@@ -172,9 +179,16 @@ function choose(answer) {
 
   // Move to next question
   current = option.next;
+   if (current.startsWith("END")) {
+    document.getElementById("question").innerText = story[current].text;
 
+    yes.style.display = "none";
+    no.style.display = "none";
+    return;
+  }
   showQuestion();
   updateWorld();
+}
 
 
 function updateFog(world) {
@@ -202,6 +216,7 @@ function updateFont() {
   document.body.style.fontFamily = font;
 }
 
+<<<<<<< HEAD
 function updateSound() {
   const wompSound = document.getElementById('wompSound');
   const triumphSound = document.getElementById('triumphSound');
@@ -237,11 +252,13 @@ function yesButtonClicker(event){
     }
 
 }
+=======
+>>>>>>> b8b9f65c2d544a43616f358a5093f6baea9b6e51
 function showQuestion() {
   document.getElementById("question").innerText =
     story[current].text;
 }
-function updateWorld() {
+function updateWorld(){
   document.getElementById("money").innerText = world.money;
   document.getElementById("smiles").innerText = world.smiles;
   document.getElementById("nature").innerText = world.nature;
