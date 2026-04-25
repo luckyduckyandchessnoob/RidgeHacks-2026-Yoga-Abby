@@ -144,6 +144,7 @@ function startGame(){
     startButton.style.display = "none";
     showQuestion();
     updateWorld();
+    updateVisualsAndSound(world);
 }
 
 
@@ -218,13 +219,21 @@ function updateVisualsAndSound(world) {
   applauseSound.currentTime = 0;
   
   if (world.smiles > 70) {
-    applauseSound.play();
+    if (applauseSound) {
+  applauseSound.currentTime = 0;
+  applauseSound.play().catch(() => {});
+};
   } else if (world.smiles > 50) {
-    triumphSound.play();
+    if (triumphSound) {
+  triumphSound.currentTime = 0;
+  triumphSound.play().catch(() => {});};
   } else if (world.smiles > 30) {
     // Do nothing - silence
   } else {
-    wompSound.play();
+    if (wompSound) {
+  wompSound.currentTime = 0;
+  wompSound.play().catch(() => {});
+};
   }
 }
 
