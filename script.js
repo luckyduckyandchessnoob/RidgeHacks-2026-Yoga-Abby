@@ -142,6 +142,7 @@ const story = {
 };
 function startGame(){
     p.style.display = "none";
+    startButton.style.display = "none";
     showQuestion();
     updateWorld();
 }
