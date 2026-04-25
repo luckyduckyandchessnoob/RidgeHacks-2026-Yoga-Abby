@@ -2,7 +2,6 @@ const startButton = document.getElementById("start");
 const yes = document.getElementById("yesButton");
 const no = document.getElementById("noButton");
 const p = document.getElementById("pInitial");
-const nextButton = document.getElementById("nextButton");
 let world = {
   money: 50,
   smiles: 50,
@@ -12,9 +11,7 @@ let world = {
 };
 
 let current = "Q1";
-if (nextButton) {
-  nextButton.style.display = "none";
-}
+
 const story = {
   Q1: {
     text: "Ruler, bugs are eating 20% of crops. Ban pesticides?",
