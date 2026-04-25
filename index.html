@@ -6,9 +6,9 @@
 
     </head>
     <body>
-        <audio id = "wompSound" src = "audio/womp-womp.mp3"></audio>
-        <audio id = "triumphSound" src = "audio/Triumph.mp3"></audio>
-        <audio id = "applauseSound" src = "audio/applause.mp3"></audio>
+        <audio id = "wompSound" src = "womp-womp.mp3"></audio>
+        <audio id = "triumphSound" src = "Triumph.mp3"></audio>
+        <audio id = "applauseSound" src = "applause.mp3"></audio>
         <div id = "fog"></div>
         <div class = "container">
         <p id = "pInitial">
@@ -16,7 +16,6 @@
             <br>
              You are the new ruler! Make decisions to lead America to greatness by 2100. Let's Make American Great Again!
         </p>
-        <p id="newsText"></p>
         <button onclick="startGame()" id = "start">Start</button>
         <p id = "question"></p>
         <button id = "yesButton" onclick = "choose('yes')">YES</button>
@@ -30,6 +29,9 @@
     Energy:<span id="energy" class="nMetric"></span>
     Future:<span id="future" class="nMetric"></span>
     </div>
+    <a href="pages/second.html">
+  <button id = "nextButton">Next</button>
+    </a>
     <script src="script.js"></script>
     </body>
 </html>

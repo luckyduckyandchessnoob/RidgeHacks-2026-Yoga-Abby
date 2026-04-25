@@ -2,6 +2,7 @@ const startButton = document.getElementById("start");
 const yes = document.getElementById("yesButton");
 const no = document.getElementById("noButton");
 const p = document.getElementById("pInitial");
+const nextButton = document.getElementById("nextButton");
 let world = {
   money: 50,
   smiles: 50,
@@ -13,7 +14,9 @@ let world = {
   const triumphSound = document.getElementById('triumphSound');
   const applauseSound = document.getElementById('applauseSound');
 let current = "Q1";
-
+if (nextButton) {
+  nextButton.style.display = "none";
+}
 const story = {
   Q1: {
     text: "Ruler, bugs are eating 20% of crops. Ban pesticides?",
@@ -169,9 +172,6 @@ function choose(answer) {
     updateVisualsAndSound(world);
     yes.style.display = "none";
     no.style.display = "none";
-    setTimeout(() => {
-    typeWriter();
-  }, 2000);
     return;
   }
   showQuestion();
@@ -217,6 +217,19 @@ fog.style.backdropFilter = `blur(${maxBlur * fogIntensity}px)`;
   document.body.style.fontFamily = font;
   
 
+  // Update sound based on smiles
+  const wompSound = document.getElementById('wompSound');
+  const triumphSound = document.getElementById('triumphSound');
+  const applauseSound = document.getElementById('applauseSound');
+  wompSound.pause();
+  triumphSound.pause();
+  applauseSound.pause();
+  wompSound.currentTime = 0;
+  triumphSound.currentTime = 0;
+  applauseSound.currentTime = 0;
+  
+
+
 
   [wompSound, triumphSound, applauseSound].forEach(s => {
     if (!s) return;
@@ -225,15 +238,31 @@ fog.style.backdropFilter = `blur(${maxBlur * fogIntensity}px)`;
   });
 
   if (world.smiles > 70) {
+
+    if (applauseSound) {
+  applauseSound.currentTime = 0;
+  applauseSound.play().catch(() => {});
+};
+  } else if (world.smiles > 50) {
+    if (triumphSound) {
+  triumphSound.currentTime = 0;
+  triumphSound.play().catch(() => {});};
+
     triumphSound?.play().catch(() => {});
   } else if (world.smiles > 50) {
     applauseSound?.play().catch(() => {});
+
   } else if (world.smiles > 30) {
-    // silence
+    // Do nothing - silence
   } else {
-    wompSound?.play().catch(() => {});
+    if (wompSound) {
+  wompSound.currentTime = 0;
+  wompSound.play().catch(() => {});
+};
   }
-);
+
+}
+
 
 
 
