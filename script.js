@@ -279,4 +279,4 @@ function typeWriter() {
       typeWriter();
     }, 2000);
   }
-}
+}}
