@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const startButton = document.getElementById("start");
 const yes = document.getElementById("yesButton");
 const no = document.getElementById("noButton");
@@ -259,4 +260,4 @@ function updateWorld(){
   document.getElementById("nature").innerText = world.nature;
   document.getElementById("energy").innerText = world.energy;
   document.getElementById("future").innerText = world.future;
-}
+}});
