@@ -192,7 +192,7 @@ function updateVisualsAndSound(world) {
   // Update fog based on energy
   let fogIntensity = Math.min(world.energy / 100, 1);
   const fog = document.getElementById("fog");
-  fog.style.background = `rgba(180, 180, 180, ${0.6 * fogIntensity})`;
+  fog.style.background = `rgba(180, 180, 180, ${0.3 * fogIntensity})`;
   fog.style.backdropFilter = `blur(${10 * fogIntensity}px)`;
   
   // Update font based on money
