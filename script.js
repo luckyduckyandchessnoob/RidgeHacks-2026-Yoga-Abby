@@ -33,12 +33,28 @@ function updateBackgroundColor() {
 }
 
 function updateFog(world) {
-  let intensity = Math.min(world.carbon / 100, 1); // 0 to 1
+  let intensity = Math.min(world.energy / 100, 1); // 0 to 1
 
   const fog = document.getElementById("fog");
 
   fog.style.background = `rgba(180, 180, 180, ${0.6 * intensity})`;
   fog.style.backdropFilter = `blur(${10 * intensity}px)`;
+}
+
+function updateFont() {
+  let font;
+  
+  if (world.money > 70) {
+    font = 'Garamond, serif';
+  } else if (world.money > 50) {
+    font = 'Times New Roman, serif';
+  } else if (world.money > 30) {
+    font = 'Arial, sans-serif';
+  } else {
+    font = 'Comic Sans MS, cursive';
+  }
+  
+  document.body.style.fontFamily = font;
 }
 
 function yesButtonClicker(event){
