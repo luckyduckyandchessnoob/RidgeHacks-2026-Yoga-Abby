@@ -14,9 +14,6 @@ let world = {
   const triumphSound = document.getElementById('triumphSound');
   const applauseSound = document.getElementById('applauseSound');
 let current = "Q1";
-if (nextButton) {
-  nextButton.style.display = "none";
-}
 const story = {
   Q1: {
     text: "Ruler, bugs are eating 20% of crops. Ban pesticides?",
