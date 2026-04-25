@@ -2,7 +2,6 @@ const startButton = document.getElementById("start");
 const yes = document.getElementById("yesButton");
 const no = document.getElementById("noButton");
 const p = document.getElementById("pInitial");
-let currentQ = "Q1";
 let world = {
   money: 50,
   smiles: 50,
@@ -159,8 +158,7 @@ function choose(answer) {
   for (let stat in effects) {
     world[stat] += effects[stat];
   }
-
-  // Move to next question
+  
   current = option.next;
    if (current.startsWith("END")) {
     document.getElementById("question").innerText = story[current].text;
