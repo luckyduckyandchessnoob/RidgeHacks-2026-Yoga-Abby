@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Climate Crisis</title>
+        <link href="other.css" rel="stylesheet" />
+
+    </head>
+    <body>
+        <audio id = "wompSound" src = "womp-womp.mp3"></audio>
+        <audio id = "triumphSound" src = "Triumph.mp3"></audio>
+        <audio id = "applauseSound" src = "applause.mp3"></audio>
+        <div id = "fog"></div>
+        <div class = "container">
+        <p id = "pInitial">
+            <b>This is the year 2030</b>
+            <br>
+             You are the new ruler! Make decisions to lead America to greatness by 2100. Let's Make American Great Again!
+        </p>
+        <button onclick="startGame()" id = "start">Start</button>
+        <p id = "question"></p>
+        <button id = "yesButton" onclick = "choose('yes')">YES</button>
+        <button id = "noButton" onclick = "choose('no')">NO</button><br>
+       
+    </div>
+    <div class = "metric">
+    Money: <span id="money" class="nMetric"></span>
+    Smiles: <span id="smiles" class="nMetric"></span>
+    Nature:<span id="nature" class="nMetric"></span>
+    Energy:<span id="energy" class="nMetric"></span>
+    Future:<span id="future" class="nMetric"></span>
+    </div>
+    <a href="second.html">
+  <button id = "nextButton">Next</button>
+    </a>
+    <script src="second.js"></script>
+    </body>
+</html>

@@ -2,6 +2,7 @@ const startButton = document.getElementById("start");
 const yes = document.getElementById("yesButton");
 const no = document.getElementById("noButton");
 const p = document.getElementById("pInitial");
+const nextButton = document.getElementById("nextButton");
 let world = {
   money: 50,
   smiles: 50,
@@ -11,7 +12,9 @@ let world = {
 };
 
 let current = "Q1";
-
+if (nextButton) {
+  nextButton.style.display = "none";
+}
 const story = {
   Q1: {
     text: "Ruler, bugs are eating 20% of crops. Ban pesticides?",
@@ -162,6 +165,9 @@ function choose(answer) {
   
   current = option.next;
    if (current.startsWith("END")) {
+    if (nextButton) {
+  nextButton.style.display = "block";
+                    }
     document.getElementById("question").innerText = story[current].text;
     updateWorld();
     updateVisualsAndSound(world);
@@ -189,11 +195,14 @@ function updateVisualsAndSound(world) {
   }
   document.body.style.backgroundColor = color;
   
-  // Update fog based on energy
-  let fogIntensity = Math.min(world.energy / 100, 1);
-  const fog = document.getElementById("fog");
-  fog.style.background = `rgba(180, 180, 180, ${0.6 * fogIntensity})`;
-  fog.style.backdropFilter = `blur(${10 * fogIntensity}px)`;
+// Update fog based on energy
+let fogIntensity = Math.min(world.energy / 100, 1);
+const fog = document.getElementById("fog");
+fog.style.background = `rgba(180, 180, 180, ${0.3 * fogIntensity})`;
+
+// Reduce blur effect
+const maxBlur = 2; // maximum blur in pixels
+fog.style.backdropFilter = `blur(${maxBlur * fogIntensity}px)`;
   
   // Update font based on money
   let font;

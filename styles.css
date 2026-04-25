@@ -8,7 +8,7 @@ body {
     padding: 0;
     overflow: hidden;
 }
-}
+
 
 @keyframes fadeBackground {
     from {
@@ -58,6 +58,7 @@ body {
 }
 
 #question {
+    font-size: 40px; 
     font-size: 40px;
 }
 
