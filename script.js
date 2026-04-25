@@ -132,12 +132,12 @@ const story = {
       effects: { nature: +40, smiles: +10, money: -10, future: +10, energy: +10  }
     }
   },
-  END_GOOD: { text: "🌟 Golden Age" },
+  END_GOOD: { text: "Earth fills with Radioactive Waste💩💩" },
   END_BAD: { text: "⚫ Blackout" },
-  END_DEMOCRACY: { text: "🗳️ Democracy" },
+  END_DEMOCRACY: { text: "Everyone's health worsens because of excess sugar😋😋😋" },
   END_TYRANT: { text: "👑 Tyrant" },
-  END_SPACE: { text: "🚀 Space Age" },
-  END_NATURE: { text: "🌱 Return to Nature" }
+  END_SPACE: { text: "Colonized Mars👽" },
+  END_NATURE: { text: "Oh no! End of the Human Race🤯🤯" }
 };
 function startGame(){
     p.style.display = "none";
